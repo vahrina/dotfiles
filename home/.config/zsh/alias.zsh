@@ -22,5 +22,4 @@ alias t="tmux new-session -A -s main"
 EZA_OPTS="--icons=auto --group-directories-first --git --no-time --no-filesize"
 alias l="eza $EZA_OPTS -Gx"
 alias ll="eza $EZA_OPTS -la"
-alias lt="eza $EZA_OPTS -Ta --level=3"
-
+alias lt="eza $EZA_OPTS -Tal --level=3 --no-permissions --octal-permissions"
