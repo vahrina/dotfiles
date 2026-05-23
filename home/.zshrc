@@ -20,6 +20,9 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
 
+# annoying bell flash
+unsetopt BEEP
+
 # -- plugins
 plugins=(
   git
