@@ -5,7 +5,4 @@ nvim() {
       EXEC:"npiperelay.exe -ei -s //./pipe/discord-ipc-0",nofork &
   fi
   command nvim "$@"
-  for f in "$@"; do
-    [[ -f $f && $f =~ \.(sh|py)$ ]] && chmod +x "$f"
-  done
 }

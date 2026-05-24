@@ -45,4 +45,5 @@ PNPM_HOME="/home/vah/.local/share/pnpm"
 # fonts
 TYPST_FONT_PATHS="/mnt/c/Users/vah/AppData/Local/Microsoft/Windows/Fonts"
 
+BROWSER="/mnt/c/PROGRA~1/BraveSoftware/Brave-Browser/Application/brave.exe"
 set +a

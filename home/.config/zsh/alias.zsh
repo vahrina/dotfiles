@@ -23,3 +23,7 @@ EZA_OPTS="--icons=auto --group-directories-first --git --no-time --no-filesize"
 alias l="eza $EZA_OPTS -Gx"
 alias ll="eza $EZA_OPTS -la"
 alias lt="eza $EZA_OPTS -Tal --level=3 --no-permissions --octal-permissions"
+# python3
+alias py="python3"
+alias pip="pip3"
+alias pyvenv="python3 -m venv .venv && source .venv/bin/activate"
