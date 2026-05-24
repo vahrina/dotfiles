@@ -4,7 +4,8 @@ prompt: enabled
 pager: less
 aliases:
     co: pr checkout
-    rv: repo view
+    rv: '!gh repo view "$@" 2>/dev/null || echo "no .git in sight"'
+    rvw: '!gh repo view "$@" --web 2>/dev/null || echo "no .git in sight"'
 http_unix_socket:
-browser:
+browser: "/mnt/c/PROGRA~1/BraveSoftware/Brave-Browser/Application/brave.exe"
 version: "1"
