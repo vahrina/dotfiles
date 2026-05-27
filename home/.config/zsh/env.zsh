@@ -2,12 +2,16 @@ set -a
 typeset -U path
 
 # editor/visual
-EDITOR=$([[ -n $SSH_CONNECTION ]] && echo vim || echo nvim)
+[[ -n $SSH_CONNECTION ]] && EDITOR=vim || EDITOR=nvim
 VISUAL=$EDITOR
 
 # go bin
 GOROOT="/usr/local/go"
 GOPATH="/usr/local/go/packages"
+
+# pnpm
+PNPM_HOME="/home/vah/.local/share/pnpm"
+
 path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
@@ -23,26 +27,27 @@ GROFF_NO_SGR=1
 MANPAGER=less
 
 # pager colors
-sgr0=$(tput sgr0)
-LESS_TERMCAP_mb=$(tput bold; tput setaf 183)
-LESS_TERMCAP_md=$(tput bold; tput setaf 183)
-LESS_TERMCAP_me=$sgr0
-LESS_TERMCAP_se=$sgr0
-LESS_TERMCAP_so=$(tput setaf 236; tput setab 183)
-LESS_TERMCAP_ue=$sgr0
-LESS_TERMCAP_us=$(tput bold; tput setaf 217)
-LESS_TERMCAP_mr=$(tput rev)
-LESS_TERMCAP_mh=$(tput dim)
+LESS_TERMCAP_mb=$'\e[1;38;5;183m'
+LESS_TERMCAP_md=$'\e[1;38;5;183m'
+LESS_TERMCAP_me=$'\e[0m'
+LESS_TERMCAP_se=$'\e[0m'
+LESS_TERMCAP_so=$'\e[38;5;236;48;5;183m'
+LESS_TERMCAP_ue=$'\e[0m'
+LESS_TERMCAP_us=$'\e[1;38;5;217m'
+LESS_TERMCAP_mr=$'\e[7m'
+LESS_TERMCAP_mh=$'\e[2m'
 
-# nvm
+# nvm lazy load
 NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm() {
+  unfunction nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
 
-# pnpm
-PNPM_HOME="/home/vah/.local/share/pnpm"
-
-# fonts
-TYPST_FONT_PATHS="/mnt/c/Users/vah/AppData/Local/Microsoft/Windows/Fonts"
+# win
+WIN_HOME="/mnt/c/Users/${USERNAME:-$(whoami)}"
+TYPST_FONT_PATHS="$WIN_HOME/AppData/Local/Microsoft/Windows/Fonts"
 
 set +a

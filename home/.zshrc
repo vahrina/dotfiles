@@ -41,3 +41,4 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 [[ $PWD == /mnt/c* ]] && cd ~
 
+inf
