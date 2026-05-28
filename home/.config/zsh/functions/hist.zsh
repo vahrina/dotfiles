@@ -5,9 +5,9 @@ hist() {
       | fzf \
         --height=45% \
         --border=rounded \
-        --pointer='*' \
+        --pointer='~' \
         --query="$BUFFER" \
-        --bind='ctrl-r:toggle-sort' \
+        --bind='ctrl-r:abort' \
         --preview-window='bottom:3:wrap:hidden'
     )
 

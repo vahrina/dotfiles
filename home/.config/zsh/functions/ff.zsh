@@ -3,18 +3,13 @@ ff() {
   local file
 
   file=$(
-    fd --type f \
-      --hidden \
-      --follow \
-      --exclude .git \
-      --exclude node_modules \
-      . "$root" \
-      | fzf \
-      --prompt '  file  ' \
-      --preview '/bin/batcat --color=always --theme=base16 --style=numbers,changes --line-range=:300 {}'  \
-      --preview-window 'right:60%:wrap'
-    ) || return
+    fd --type f --hidden --follow --exclude .git --exclude node_modules "$root" \
+    | fzf \
+      --preview='/bin/batcat --color=always --theme=base16 --style=numbers,changes --line-range=:300 {}'  \
+      --bind='ctrl-/:toggle-preview' \
+      --pointer='~' \
+      --preview-window='right:60%:wrap'
+  ) || return
 
-    [ -n "$file" ] && nvim -- "$file"
-  }
-
+  [ -n "$file" ] && nvim -- "$file"
+}
